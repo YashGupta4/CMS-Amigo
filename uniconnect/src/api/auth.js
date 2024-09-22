@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'mongodb+srv://yashgupta758:yashgupta758@cms-amigo.zujwu.mongodb.net/?retryWrites=true&w=majority&appName=CMS-Amigo/api/auth';
+const API_URL = 'https://mongodb+srv://yashgupta758:yashgupta758@cms-amigo.zujwu.mongodb.net/?retryWrites=true&w=majority&appName=CMS-Amigo/api/auth';
 
 export const login = async (username, password) => {
   try {
