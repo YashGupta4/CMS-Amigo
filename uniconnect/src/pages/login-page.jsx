@@ -8,7 +8,7 @@ import { Label } from "../components/Label"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "../components/Card"
 import { login, register } from '../api/auth';
 
-export default function LoginPage({ onLogin }) {
+export default function LoginPage({ onLogin, onContinueAsGuest }) {
   const [identifier, setIdentifier] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
@@ -134,6 +134,9 @@ export default function LoginPage({ onLogin }) {
                   {isLoading ? (isRegistering ? 'Registering...' : 'Logging in...') : (isRegistering ? 'Register' : 'Log in')}
                 </Button>
               </form>
+              <Button onClick={onContinueAsGuest} className="w-full mt-4 bg-gray-300 text-gray-800 hover:bg-gray-400">
+                Continue without login
+              </Button>
             </CardContent>
             <CardFooter className="flex flex-col items-center">
               <button
@@ -158,4 +161,5 @@ export default function LoginPage({ onLogin }) {
 
 LoginPage.propTypes = {
   onLogin: PropTypes.func.isRequired,
+  onContinueAsGuest: PropTypes.func.isRequired,
 };

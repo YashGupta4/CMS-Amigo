@@ -15,6 +15,7 @@ export default function App() {
     const savedMode = localStorage.getItem('darkMode');
     return savedMode ? JSON.parse(savedMode) : false;
   });
+  const [isGuestMode, setIsGuestMode] = useState(false);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -45,6 +46,7 @@ export default function App() {
 
   const handleLogin = (userData) => {
     setUser(userData);
+    setIsGuestMode(false);
     setActivePage('AboutUs');
   };
 
@@ -52,10 +54,16 @@ export default function App() {
     try {
       await logout();
       setUser(null);
+      setIsGuestMode(false);
       setActivePage('AboutUs');
     } catch (error) {
       console.error('Logout failed:', error);
     }
+  };
+
+  const handleContinueAsGuest = () => {
+    setIsGuestMode(true);
+    setActivePage('AboutUs');
   };
 
   const toggleDarkMode = () => {
@@ -76,17 +84,18 @@ export default function App() {
           setShowLogin={() => setActivePage('Login')}
           isDarkMode={isDarkMode}
           toggleDarkMode={toggleDarkMode}
+          isGuestMode={isGuestMode}
         />
         <main className={`pt-20 ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'}`}>
           <Routes>
             <Route path="/login" element={
-              user ? <Navigate to="/" /> : <LoginPage onLogin={handleLogin} />
+              user || isGuestMode ? <Navigate to="/" /> : <LoginPage onLogin={handleLogin} onContinueAsGuest={handleContinueAsGuest} />
             } />
             <Route path="/forgot-credentials" element={<ForgotCredentialsPage />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/" element={
-              user ? (
-                activePage === 'AboutUs' ? <AboutUs /> : <PageRenderer activePage={activePage} user={user} />
+              user || isGuestMode ? (
+                activePage === 'AboutUs' ? <AboutUs /> : <PageRenderer activePage={activePage} user={user} isGuestMode={isGuestMode} />
               ) : (
                 <Navigate to="/login" />
               )
