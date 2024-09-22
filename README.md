@@ -2,7 +2,9 @@
 
 > Bringing the Real-world Classroom Experience to Your Doorstep! 🚀
 
-![AMIGO Banner](/placeholder.svg?height=300&width=600)
+![AMIGO Banner]
+![image](https://github.com/user-attachments/assets/69d58c3e-b023-4b83-b5de-df65c60ba4f7)
+
 
 ## 🌟 Welcome to AMIGO!
 
@@ -55,6 +57,10 @@ To create a seamless, intuitive, and enjoyable digital experience for the entire
 ### 📊 Data that Tells a Story
 - 📈 Watch your academic progress soar
 - 🗓️ Event calendars that make FOMO a thing of the past
+
+![Frontend-Flowchart](https://github.com/user-attachments/assets/17b7b57b-b7ee-4e24-ab83-d448a6519bb5)
+![Backend-Flowchart](https://github.com/user-attachments/assets/cae6b51f-6b44-410a-b29d-ad589403dff5)
+
 
 ## 🛠️ Tech Magic Behind AMIGO
 
