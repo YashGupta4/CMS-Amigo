@@ -7,7 +7,7 @@ require('dotenv').config();
 const app = express();
 
 // Middleware
-app.use(cors({ origin: 'http://localhost:5173' })); // Update this to match your frontend URL
+app.use(cors({ origin: 'http://localhost:5173' , credentials: true})); // Update this to match your frontend URL
 app.use(express.json());
 
 // Logging middleware
